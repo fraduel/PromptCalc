@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    background-color: #111;
+    color: #0f0;
+    font-family: monospace;
+    font-size: 18px;
+    height: 100vh;
+    overflow: hidden;
+    /* ← evita scroll global */
+    display: flex;
+    flex-direction: column;
+}
+
+#terminal {
+    display: flex;
+    flex-direction: row;
+    /* ← clave para columnas */
+    height: 100%;
+    width: 100%;
+    /*padding: 20px;*/
+    box-sizing: border-box;
+    overflow: hidden;
+    /* ← evita que hijos desborden */
+}
+
+#main {
+    /*justify-content: flex-end;*/
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: flex-end;*/
+    /* empuja el input hacia abajo */
+    padding: 20px;
+    overflow: hidden;
+    /* evita que se cree scroll global */
+}
+
+#output {
+    flex-grow: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    /*max-height: calc(100vh - 160px);*/
+    /* igual que el buffer */
+}
+
+#output::-webkit-scrollbar {
+    width: 6px;
+}
+
+#output::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 3px;
+}
+
+#output::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+#input {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    color: #0f0;
+    border: none;
+    outline: none;
+    font-family: monospace;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+#sidebar {
+    width: 200px;
+    background-color: #1a1a1a;
+    color: #ffaa00;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#sidebar h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #ffaa00;
+}
+
+#buffer-view {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: calc(100vh - 160px);
+    /* ajusta según tu layout */
+    overflow-y: auto;
+}
+
+#buffer-view::-webkit-scrollbar {
+    width: 6px;
+}
+
+#buffer-view::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 3px;
+}
+
+#buffer-view::-webkit-scrollbar-track {
+    background-color: #222;
+}
+
+#buffer-view li {
+    font-family: monospace;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+#encabezado {
+    background-color: #222;
+    color: rgb(255, 102, 0);
+    padding: 10px 20px;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+
+#encabezado h1 {
+    font-size: 22px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+#fecha-hora {
+    font-size: 16px;
+    color: #0af;
+}
+
+.input-label {
+    color: #0a0;
+    /* verde más oscuro */
+}
+
+.input-value {
+    color: #aaa;
+    /* gris suave */
+}
+
+.op-label {
+    color: #0a0;
+    /* verde más oscuro */
+}
+
+.result-label {
+    color: #ffaa00;
+    /* amarillo anaranjado */
+}
+
+.result-value {
+    color: #fff;
+    /* blanco */
+}
+
+.error {
+    color: #f55;
+    /* rojo claro */
+}
+
+.info {
+    color: #0af;
+    /* azul suave */
+}
+
+.operation {
+    color: #ccc;
+    /* gris claro para la operación */
+    font-style: italic;
+}
+
+.group-title {
+    font-weight: bold;
+    color: #4a90e2;
+    font-size: 1.1em;
+}
+
+.result-hex {
+    color: #00d1c0;
+    font-weight: bold;
+    font-family: monospace;
+}
+
+
+.modal {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    border: 1px solid #444;
+    padding: 20px;
+    z-index: 1000;
+    color: #00d1ae;
+    font-family: monospace;
+    width: 320px;
+    box-shadow: 0 0 10px #000;
+}
+
+.oculto {
+    display: none;
+}
+
+.modal-contenido select,
+.modal-contenido input {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background-color: #111;
+    color: #00d1ae;
+    border: 1px solid #444;
+    padding: 6px;
+}
+
+.modal-contenido button {
+    margin-right: 10px;
+    padding: 6px 12px;
+    font-family: monospace;
+    background-color: #333;
+    color: #ffcc00;
+    border: 1px solid #555;
+    cursor: pointer;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PromptCalc</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header id="encabezado">
+        <h1>PromptCalc</h1>
+        <div id="fecha-hora"></div>
+    </header>
+
+    <div id="terminal">
+        <div id="main">
+            <pre id="output"></pre>
+            <input type="text" id="input" placeholder="Escribe un comando..." autofocus />
+        </div>
+        <div id="sidebar">
+            <h3>Buffer</h3>
+            <ul id="buffer-view"></ul>
+        </div>
+    </div>
+
+    <!-- Conversor de unidades -->
+    <div id="modal-conversor" class="modal oculto">
+        <div class="modal-contenido">
+            <h2>Conversor de unidades</h2>
+
+            <label for="familia-unidad">Familia:</label>
+            <select id="familia-unidad">
+                <option value="temperatura">Temperatura</option>
+                <option value="presion">Presión</option>
+                <option value="longitud">Longitud</option>
+                <option value="volumen">Volumen</option>
+            </select>
+
+            <label for="unidad-origen">Unidad origen:</label>
+            <select id="unidad-origen"></select>
+
+            <label for="unidad-destino">Unidad destino:</label>
+            <select id="unidad-destino"></select>
+
+            <label for="valor-conversion">Valor:</label>
+            <input type="text" id="valor-conversion" />
+
+            <button id="confirmar-conversion">Convertir</button>
+            <button id="cerrar-conversor">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
