@@ -68,6 +68,7 @@ if (historialGuardado) {
         } else if (item.tipo === "operacion") {
             let operacionTexto;
             let encabezado = `> ${item.operador}`;
+            let resultadoHTML = null;
 
             if (item.operador === "inv") {
                 operacionTexto = `1 / ${item.a}`;
@@ -174,7 +175,7 @@ actualizarFechaHora(); // inicializa al cargar
 function actualizarBufferVisual() {
     const bufferView = document.getElementById("buffer-view");
     bufferView.innerHTML = "";
-    buffer.slice().reverse().forEach((valor, i) => {
+    buffer.slice().forEach((valor, i) => {
         const li = document.createElement("li");
         li.textContent = `${i + 1}: ${valor}`;
         bufferView.appendChild(li);
